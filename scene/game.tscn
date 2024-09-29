@@ -1,8 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://m0agolvnpkb0"]
+[gd_scene load_steps=4 format=3 uid="uid://m0agolvnpkb0"]
 
 [ext_resource type="Script" path="res://scene/game.gd" id="1_3te1s"]
+[ext_resource type="Texture2D" uid="uid://w0nwbyx62oxf" path="res://gfx/check_2.png" id="2_nixv5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2k1yk"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_3te1s")
 
 [node name="World" parent="." instance_placeholder="res://scene/world.tscn"]
+
+[node name="Ball" type="RigidBody2D" parent="."]
+position = Vector2(16, 16)
+collision_mask = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Ball"]
+scale = Vector2(10, 10)
+texture = ExtResource("2_nixv5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
+shape = SubResource("CircleShape2D_2k1yk")

@@ -27,6 +27,13 @@ Global="*res://src/global.gd"
 window/size/viewport_width=1280
 window/size/viewport_height=720
 
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="Enemy"
+2d_physics/layer_3="BG"
+2d_physics/layer_4="Platform"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
