@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://m0agolvnpkb0"]
+[gd_scene load_steps=11 format=3 uid="uid://m0agolvnpkb0"]
 
 [ext_resource type="Script" path="res://scene/game.gd" id="1_3te1s"]
 [ext_resource type="Texture2D" uid="uid://w0nwbyx62oxf" path="res://gfx/check_2.png" id="2_nixv5"]
@@ -50,6 +50,10 @@ _data = {
 "light_rot": SubResource("Animation_wttqy")
 }
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_s0x65"]
+blend_mode = 1
+light_mode = 1
+
 [node name="Game" type="Node"]
 script = ExtResource("1_3te1s")
 
@@ -86,3 +90,9 @@ libraries = {
 "": SubResource("AnimationLibrary_ackxd")
 }
 autoplay = "light_rot"
+
+[node name="Additive" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.501961)
+material = SubResource("CanvasItemMaterial_s0x65")
+position = Vector2(17, 75)
+texture = ExtResource("3_frxuw")
