@@ -1,18 +1,30 @@
-[gd_scene load_steps=4 format=3 uid="uid://m0agolvnpkb0"]
+[gd_scene load_steps=6 format=3 uid="uid://m0agolvnpkb0"]
 
 [ext_resource type="Script" path="res://scene/game.gd" id="1_3te1s"]
 [ext_resource type="Texture2D" uid="uid://w0nwbyx62oxf" path="res://gfx/check_2.png" id="2_nixv5"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5ki30"]
+bounce = 0.65
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_2k1yk"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_r0rih"]
+particle_flag_disable_z = true
+gravity = Vector3(0, -98, 0)
 
 [node name="Game" type="Node"]
 script = ExtResource("1_3te1s")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(120, 120)
+zoom = Vector2(3, 3)
 
 [node name="World" parent="." instance_placeholder="res://scene/world.tscn"]
 
 [node name="Ball" type="RigidBody2D" parent="."]
 position = Vector2(219, 21)
 collision_mask = 4
+physics_material_override = SubResource("PhysicsMaterial_5ki30")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Ball"]
@@ -22,3 +34,7 @@ texture = ExtResource("2_nixv5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
 shape = SubResource("CircleShape2D_2k1yk")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Ball"]
+position = Vector2(10, 0)
+process_material = SubResource("ParticleProcessMaterial_r0rih")
