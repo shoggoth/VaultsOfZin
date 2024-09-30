@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://m0agolvnpkb0"]
+[gd_scene load_steps=7 format=3 uid="uid://m0agolvnpkb0"]
 
 [ext_resource type="Script" path="res://scene/game.gd" id="1_3te1s"]
 [ext_resource type="Texture2D" uid="uid://w0nwbyx62oxf" path="res://gfx/check_2.png" id="2_nixv5"]
+[ext_resource type="Texture2D" uid="uid://i4yw2j31hvoi" path="res://gfx/white_1px.png" id="3_xcga7"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5ki30"]
 bounce = 0.65
@@ -38,3 +39,7 @@ shape = SubResource("CircleShape2D_2k1yk")
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Ball"]
 position = Vector2(10, 0)
 process_material = SubResource("ParticleProcessMaterial_r0rih")
+
+[node name="PointLight2D" type="PointLight2D" parent="Ball"]
+texture = ExtResource("3_xcga7")
+texture_scale = 32.0
