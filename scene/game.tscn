@@ -1,8 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://m0agolvnpkb0"]
+[gd_scene load_steps=10 format=3 uid="uid://m0agolvnpkb0"]
 
 [ext_resource type="Script" path="res://scene/game.gd" id="1_3te1s"]
 [ext_resource type="Texture2D" uid="uid://w0nwbyx62oxf" path="res://gfx/check_2.png" id="2_nixv5"]
-[ext_resource type="Texture2D" uid="uid://i4yw2j31hvoi" path="res://gfx/white_1px.png" id="3_xcga7"]
+[ext_resource type="Texture2D" uid="uid://djro3x8sqjrea" path="res://gfx/point_light.png" id="3_frxuw"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5ki30"]
 bounce = 0.65
@@ -12,6 +12,43 @@ bounce = 0.65
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_r0rih"]
 particle_flag_disable_z = true
 gravity = Vector3(0, -98, 0)
+
+[sub_resource type="Animation" id="Animation_wttqy"]
+resource_name = "light_rot"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(2, 2), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_unrcy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ackxd"]
+_data = {
+"RESET": SubResource("Animation_unrcy"),
+"light_rot": SubResource("Animation_wttqy")
+}
 
 [node name="Game" type="Node"]
 script = ExtResource("1_3te1s")
@@ -41,5 +78,11 @@ position = Vector2(10, 0)
 process_material = SubResource("ParticleProcessMaterial_r0rih")
 
 [node name="PointLight2D" type="PointLight2D" parent="Ball"]
-texture = ExtResource("3_xcga7")
-texture_scale = 32.0
+position = Vector2(0, 10)
+texture = ExtResource("3_frxuw")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Ball"]
+libraries = {
+"": SubResource("AnimationLibrary_ackxd")
+}
+autoplay = "light_rot"
