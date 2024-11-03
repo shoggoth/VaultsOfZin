@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://du143raqji61v"
-path="res://.godot/imported/cherry.png-c1851f0e09b4f93a235f560e3d5f6e39.ctex"
+uid="uid://ex7h8chp86gj"
+path="res://.godot/imported/Mobs.png-01e53ee64f0a2f91234df6caf30e7bf7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gfx/pickups/cherry.png"
-dest_files=["res://.godot/imported/cherry.png-c1851f0e09b4f93a235f560e3d5f6e39.ctex"]
+source_file="res://gfx/enemy/Mobs.png"
+dest_files=["res://.godot/imported/Mobs.png-01e53ee64f0a2f91234df6caf30e7bf7.ctex"]
 
 [params]
 

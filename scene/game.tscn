@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://m0agolvnpkb0"]
+[gd_scene load_steps=16 format=3 uid="uid://m0agolvnpkb0"]
 
 [ext_resource type="Script" path="res://scene/game.gd" id="1_3te1s"]
 [ext_resource type="Texture2D" uid="uid://w0nwbyx62oxf" path="res://gfx/check_2.png" id="2_nixv5"]
 [ext_resource type="Texture2D" uid="uid://djro3x8sqjrea" path="res://gfx/point_light.png" id="3_frxuw"]
+[ext_resource type="Script" path="res://scene/player.gd" id="4_6ysck"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5ki30"]
 bounce = 0.65
@@ -93,6 +94,8 @@ _data = {
 "idle": SubResource("Animation_cft20")
 }
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yr2df"]
+
 [node name="Game" type="Node"]
 script = ExtResource("1_3te1s")
 
@@ -142,3 +145,9 @@ libraries = {
 "": SubResource("AnimationLibrary_ty1g5")
 }
 autoplay = "idle"
+
+[node name="Player" type="CharacterBody2D" parent="."]
+script = ExtResource("4_6ysck")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("CapsuleShape2D_yr2df")
