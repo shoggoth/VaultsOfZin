@@ -106,7 +106,7 @@ zoom = Vector2(3, 3)
 [node name="World" parent="." instance_placeholder="res://scene/world.tscn"]
 
 [node name="Ball" type="RigidBody2D" parent="."]
-position = Vector2(219, 21)
+position = Vector2(200, 0)
 collision_mask = 4
 physics_material_override = SubResource("PhysicsMaterial_5ki30")
 metadata/_edit_group_ = true
