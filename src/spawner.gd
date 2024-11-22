@@ -14,7 +14,7 @@ var snapshot := Snapshot.new()
 
 
 func _ready():
-	print("Spawner : ", self.global_position)
+	print("Spawner : ", self.global_position, " ", self.name)
 
 
 func clear_current_level():

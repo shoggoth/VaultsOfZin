@@ -1,6 +1,8 @@
-[gd_scene load_steps=8 format=4 uid="uid://vli2mhpuf30d"]
+[gd_scene load_steps=11 format=4 uid="uid://vli2mhpuf30d"]
 
 [ext_resource type="Texture2D" uid="uid://cvw74eyxl8qal" path="res://gfx/tiles/Tiles.png" id="1_pgqpd"]
+[ext_resource type="PackedScene" uid="uid://cqegi1qrqjx6p" path="res://scene/enemy.tscn" id="2_2iryq"]
+[ext_resource type="Script" path="res://src/spawner.gd" id="3_0801l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tum4g"]
 texture = ExtResource("1_pgqpd")
@@ -8,6 +10,25 @@ texture_region_size = Vector2i(8, 8)
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
+6:8/0 = 0
+6:9/0 = 0
+6:10/0 = 0
+5:8/0 = 0
+0:9/0 = 0
+2:9/0 = 0
+2:10/0 = 0
+3:10/0 = 0
+3:9/0 = 0
+7:5/0 = 0
+7:6/0 = 0
+7:7/0 = 0
+4:8/0 = 0
+3:8/0 = 0
+2:8/0 = 0
+1:8/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+2:4/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_vqttt"]
 tile_size = Vector2i(8, 8)
@@ -22,18 +43,94 @@ texture_region_size = Vector2i(8, 8)
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
 2:0/0 = 0
 2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+1:7/0 = 0
+2:7/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+5:5/0 = 0
+4:5/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+6:3/0 = 0
+7:8/0 = 0
+7:9/0 = 0
+7:10/0 = 0
+6:5/0 = 0
+6:6/0 = 0
+6:7/0 = 0
+5:7/0 = 0
+4:7/0 = 0
+3:7/0 = 0
+0:5/0 = 0
+0:6/0 = 0
+0:7/0 = 0
+0:8/0 = 0
+0:12/0 = 0
+0:12/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+1:12/0 = 0
+1:12/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+2:12/0 = 0
+2:12/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+7:0/0 = 0
+7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+6:1/0 = 0
+6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+5:1/0 = 0
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+4:2/0 = 0
+4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+5:2/0 = 0
+5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+6:2/0 = 0
+6:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+7:2/0 = 0
+7:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+7:3/0 = 0
+7:5/0 = 0
+7:6/0 = 0
+7:7/0 = 0
+7:1/0 = 0
+7:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_8ui1a"]
+resource_name = "Enemy"
+scenes/1/scene = ExtResource("2_2iryq")
 
 [sub_resource type="TileSet" id="TileSet_odoru"]
 tile_size = Vector2i(8, 8)
 physics_layer_0/collision_layer = 12
 sources/1 = SubResource("TileSetAtlasSource_h7hvb")
+sources/2 = SubResource("TileSetScenesCollectionSource_8ui1a")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cce8p"]
 texture = ExtResource("1_pgqpd")
 texture_region_size = Vector2i(8, 8)
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
+3:12/0 = 0
+4:12/0 = 0
+5:12/0 = 0
+6:12/0 = 0
+7:12/0 = 0
+2:1/0 = 0
+1:1/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+0:3/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_qno5w"]
 tile_size = Vector2i(8, 8)
@@ -44,19 +141,23 @@ physics_interpolation_mode = 1
 
 [node name="BG" type="TileMapLayer" parent="."]
 modulate = Color(0.501961, 0.505882, 0.501961, 1)
-tile_map_data = PackedByteArray("AAABAAEAAAAAAAAAAAABAAIAAAAAAAAAAAACAAEAAAAAAAAAAAACAAIAAAAAAAAAAAADAAEAAAAAAAAAAAADAAIAAAAAAAAAAAAEAAEAAAAAAAAAAAAEAAIAAAAAAAAAAAAXAAYAAAAAAAAAAAAYAAYAAAAAAAAAAAAZAAYAAAAAAAAAAAAaAAYAAAAAAAAAAAAbAAYAAAAAAAAAAAAcAAYAAAAAAAAAAAAdAAYAAAAAAAAAAAAeAAYAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAABAAEAAAAAAAAAAAABAAIAAAAAAAAAAAACAAEAAAAAAAAAAAACAAIAAAAAAAAAAAADAAEAAAAAAAAAAAADAAIAAAAAAAAAAAAEAAEAAAAAAAAAAAAEAAIAAAAAAAAAAAAXAAYAAAAAAAAAAAAYAAYAAAAAAAAAAAAZAAYAAAAAAAAAAAAaAAYAAAAAAAAAAAAbAAYAAAAAAAAAAAAcAAYAAAAAAAAAAAAdAAYAAAAAAAAAAAAeAAYAAAAAAAAAAAADAAAAAAACAAQAAAA=")
 tile_set = SubResource("TileSet_vqttt")
 collision_enabled = false
 navigation_enabled = false
 
 [node name="Platform" type="TileMapLayer" parent="."]
 texture_filter = 1
-tile_map_data = PackedByteArray("AAAAAAcAAQAAAAAAAAABAAcAAQAAAAAAAAACAAcAAQAAAAAAAAADAAcAAQAAAAAAAAAEAAcAAQAAAAAAAAAFAAcAAQAAAAAAAAAHAAgAAQAAAAAAAAAIAAgAAQAAAAAAAAAHAAcAAQAAAAAAAAAIAAcAAQAAAAAAAAAJAAYAAQAAAAAAAAAJAAcAAQAAAAAAAAAKAAYAAQAAAAAAAAAKAAcAAQAAAAAAAAALAAUAAQAAAAAAAAALAAYAAQAAAAAAAAAMAAUAAQAAAAAAAAAMAAYAAQAAAAAAAAANAAQAAQAAAAAAAAANAAUAAQAAAAAAAAAOAAQAAQAAAAAAAAAOAAUAAQAAAAAAAAAPAAMAAQAAAAAAAAAPAAQAAQAAAAAAAAAQAAMAAQAAAAAAAAAQAAQAAQAAAAAAAAARAAIAAQAAAAAAAAARAAMAAQAAAAAAAAASAAIAAQAAAAAAAAASAAMAAQAAAAAAAAAAAAYAAQABAAAAAAABAAYAAQABAAAAAAACAAYAAQABAAAAAAADAAYAAQABAAAAAAAEAAYAAQABAAAAAAAFAAYAAQABAAAAAAAUAAgAAQAAAAAAAAAVAAgAAQAAAAAAAAAWAAgAAQAAAAAAAAAXAAgAAQAAAAAAAAAYAAgAAQAAAAAAAAAZAAgAAQAAAAAAAAAaAAgAAQAAAAAAAAAbAAgAAQAAAAAAAAAcAAgAAQAAAAAAAAAdAAgAAQAAAAAAAAAeAAgAAQAAAAAAAAAfAAgAAQAAAAAAAAAgAAgAAQAAAAAAAAAhAAgAAQAAAAAAAAAiAAgAAQAAAAAAAAAjAAgAAQAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAHAAgAAQAAAAAAAAAIAAgAAQAAAAAAAAAHAAcAAQAAAAAAAAAIAAcAAQAAAAAAAAAJAAYAAQAAAAAAAAAJAAcAAQAAAAAAAAAKAAYAAQAAAAAAAAAKAAcAAQAAAAAAAAALAAUAAQAAAAAAAAALAAYAAQAAAAAAAAANAAUAAQAAAAAAAAAOAAQAAQAAAAAAAAAOAAUAAQAAAAAAAAAPAAQAAQAAAAAAAAAQAAQAAQAAAAAAAAARAAMAAQAAAAAAAAASAAIAAQAAAAAAAAASAAMAAQAAAAAAAAAUAAgAAQAAAAAAAAAWAAgAAQAAAAAAAAAXAAgAAQAAAAAAAAAYAAgAAQAAAAAAAAAZAAgAAQAAAAAAAAAaAAgAAQAAAAAAAAAbAAgAAQAAAAAAAAAcAAgAAQAAAAAAAAAdAAgAAQAAAAAAAAAeAAgAAQAAAAAAAAAfAAgAAQAAAAAAAAAgAAgAAQAAAAAAAAAhAAgAAQAAAAAAAAAiAAgAAQAAAAAAAAAjAAgAAQAAAAAAAAALAAkAAQAAAAAAAAAMAAoAAQAAAAAAAAAOAAoAAQAAAAAAAAAPAAkAAQAAAAAAAAAQAAgAAQAAAAAAAAAOAAwAAQAAAAAAAAANAA0AAQAAAAAAAAAMAA4AAQAAAAAAAAALAA8AAQAAAAAAAAAKAAUAAQAAAAAAAAAKAAQAAQAAAAAAAAAVAAgAAQAAAAAAAAARAAIAAQAAAAAAAAAFAAIAAgAAAAAAAQAGAAMAAgAAAAAAAQAHAAIAAgAAAAAAAQAAAA4AAQAAAAAAAAAAAA8AAQAHAAEAAAABAA4AAQAAAAAAAAABAA8AAQAHAAEAAAACAA4AAQAAAAAAAAACAA8AAQAHAAEAAAADAA4AAQAAAAAAAAADAA8AAQAHAAEAAAAEAA4AAQAAAAAAAAAEAA8AAQAHAAEAAAAFAA4AAQAAAAAAAAAFAA8AAQAHAAEAAAA=")
 tile_set = SubResource("TileSet_odoru")
 
+[node name="Spawner" type="Marker2D" parent="Platform"]
+position = Vector2(100, 29)
+script = ExtResource("3_0801l")
+enemy_scene = ExtResource("2_2iryq")
+
 [node name="Decoration" type="TileMapLayer" parent="."]
-modulate = Color(1, 0.2, 0.352941, 1)
 z_index = 1
 texture_filter = 1
-tile_map_data = PackedByteArray("AAABAAUAAgACAAAAAAAEAAUAAgACAAAAAAAUAAcAAgACAAAAAAAWAAcAAgACAAAAAAAYAAcAAgACAAAAAAAaAAcAAgACAAAAAAAcAAcAAgACAAAAAAAeAAcAAgACAAAAAAAgAAcAAgACAAAAAAAiAAcAAgACAAAAAAAVAAgAAgACAAAAAAA=")
+tile_map_data = PackedByteArray("AAAUAAcAAgADAAwAAAAWAAcAAgAEAAwAAAAYAAcAAgAEAAwAAAAaAAcAAgADAAwAAAAcAAcAAgADAAwAAAAeAAcAAgADAAwAAAAgAAcAAgAEAAwAAAAiAAcAAgADAAwAAAAbAAgAAgAFAAwAAAAfAAgAAgAGAAwAAAAjAAgAAgAGAAwAAAABAA0AAgADAAwAAAAEAA0AAgADAAwAAAA=")
 tile_set = SubResource("TileSet_qno5w")
