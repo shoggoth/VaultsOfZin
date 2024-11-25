@@ -154,7 +154,6 @@ tile_set = SubResource("TileSet_odoru")
 [node name="Spawner" type="Marker2D" parent="Platform"]
 position = Vector2(100, 29)
 script = ExtResource("3_0801l")
-enemy_scene = ExtResource("2_2iryq")
 
 [node name="Decoration" type="TileMapLayer" parent="."]
 z_index = 1

@@ -1,4 +1,4 @@
-class_name Enemy extends Node2D
+class_name Mob extends Node2D
 
 @export var base_frame: int = 1
 
