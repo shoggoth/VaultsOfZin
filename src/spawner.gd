@@ -1,6 +1,5 @@
 class_name Spawner extends Marker2D
 
-
 signal spawned(enemy: Enemy)
 signal destroyed(enemy: Enemy)
 signal snapshot_changed(snapshot: Spawner.Snapshot)
@@ -12,15 +11,12 @@ const TYPE_COUNT = 3
 
 var snapshot := Snapshot.new()
 
-
 func _ready():
 	print("Spawner : ", self.global_position, " ", self.name)
-
 
 func clear_current_level():
 	snapshot = Snapshot.new()
 	for i in get_children(): i.queue_free()
-
 
 func spawn_level(_level_number = 1):
 	for x in grid_size.x - 1: spawn(Vector2(x + 0.5, 0))
@@ -29,7 +25,6 @@ func spawn_level(_level_number = 1):
 
 	snapshot.active_count = get_child_count()
 	snapshot_changed.emit(snapshot)
-
 
 func spawn(pos: Vector2, type: int = 0) -> Enemy:
 	var e: Enemy = enemy_scene.instantiate()
@@ -42,7 +37,6 @@ func spawn(pos: Vector2, type: int = 0) -> Enemy:
 	spawned.emit(e)
 	return e
 
-
 func respawn(e: Enemy):
 	destroyed.emit(e)
 	if e.type < TYPE_COUNT:
@@ -52,7 +46,6 @@ func respawn(e: Enemy):
 		snapshot.active_count -= 1
 	snapshot.destroyed_count += 1
 	snapshot_changed.emit(snapshot)
-
 
 class Snapshot:
 	var active_count: int

@@ -1,6 +1,5 @@
 class_name StateMachine extends Node
 
-
 signal state_changed(from: State, to: State)
 
 @export var current_state: State = null
@@ -11,10 +10,8 @@ func _ready():
 	connect("child_entered_tree", _on_child_entered_tree)
 	for child in get_children(): _on_child_entered_tree(child)
 
-
 func get_state(named: String) -> State:
 	return get_node(named) as State
-
 
 func enter_state(state: State, params := {}) -> bool:
 	if !can_enter_state(state as State): return false
@@ -29,15 +26,12 @@ func enter_state(state: State, params := {}) -> bool:
 		return true
 	return false
 
-
 func enter_state_named(state_name: String, params := {}) -> bool:
 	var state = get_state(state_name)
 	return false if !state else enter_state(state, params)
 
-
 func can_enter_state(state: State) -> bool:
 	return !current_state || current_state.valid_transitions == null || current_state.valid_transitions.has(state.name)
-
 
 func _on_child_entered_tree(child: Node):
 	if child is State:
