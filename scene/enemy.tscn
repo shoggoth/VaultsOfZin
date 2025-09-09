@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cqegi1qrqjx6p"]
 
-[ext_resource type="Script" path="res://scene/mob.gd" id="1_lvusm"]
+[ext_resource type="Script" uid="uid://c8r8baicejkay" path="res://scene/mob.gd" id="1_lvusm"]
 [ext_resource type="Texture2D" uid="uid://ex7h8chp86gj" path="res://gfx/mob/Mobs.png" id="2_o88s0"]
 
 [node name="Enemy" type="Node2D"]

@@ -1,7 +1,8 @@
 class_name Player extends CharacterBody2D
 
 func _input(event: InputEvent) -> void:
-	print(event)
+	#print(event)
+	pass
 
 func _physics_process(delta: float) -> void:
 	velocity += delta * Global.gravity

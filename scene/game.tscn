@@ -1,9 +1,9 @@
 [gd_scene load_steps=16 format=3 uid="uid://m0agolvnpkb0"]
 
-[ext_resource type="Script" path="res://scene/game.gd" id="1_3te1s"]
+[ext_resource type="Script" uid="uid://c2mq2cgttf31o" path="res://scene/game.gd" id="1_3te1s"]
 [ext_resource type="Texture2D" uid="uid://w0nwbyx62oxf" path="res://gfx/check_2.png" id="2_nixv5"]
 [ext_resource type="Texture2D" uid="uid://bivj057kk33dm" path="res://gfx/point_light_16.png" id="3_d1g1v"]
-[ext_resource type="Script" path="res://scene/player.gd" id="4_6ysck"]
+[ext_resource type="Script" uid="uid://dcobtt7ihl5kc" path="res://scene/player.gd" id="4_6ysck"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5ki30"]
 bounce = 0.65
@@ -49,8 +49,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ackxd"]
 _data = {
-"RESET": SubResource("Animation_unrcy"),
-"light_rot": SubResource("Animation_wttqy")
+&"RESET": SubResource("Animation_unrcy"),
+&"light_rot": SubResource("Animation_wttqy")
 }
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_s0x65"]
@@ -90,8 +90,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ty1g5"]
 _data = {
-"RESET": SubResource("Animation_ac2q6"),
-"idle": SubResource("Animation_cft20")
+&"RESET": SubResource("Animation_ac2q6"),
+&"idle": SubResource("Animation_cft20")
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yr2df"]
@@ -103,7 +103,6 @@ script = ExtResource("1_3te1s")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(120, 120)
-zoom = Vector2(3, 3)
 
 [node name="World" parent="." instance_placeholder="res://scene/world.tscn"]
 
@@ -123,6 +122,7 @@ shape = SubResource("CircleShape2D_2k1yk")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Ball"]
 position = Vector2(10, 0)
+amount = 128
 process_material = SubResource("ParticleProcessMaterial_r0rih")
 
 [node name="PointLight2D" type="PointLight2D" parent="Ball"]
@@ -132,7 +132,7 @@ texture_scale = 4.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Ball"]
 libraries = {
-"": SubResource("AnimationLibrary_ackxd")
+&"": SubResource("AnimationLibrary_ackxd")
 }
 autoplay = "light_rot"
 
@@ -145,7 +145,7 @@ texture = ExtResource("3_d1g1v")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Additive"]
 libraries = {
-"": SubResource("AnimationLibrary_ty1g5")
+&"": SubResource("AnimationLibrary_ty1g5")
 }
 autoplay = "idle"
 

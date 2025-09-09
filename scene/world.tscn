@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://cvw74eyxl8qal" path="res://gfx/tiles/Tiles.png" id="1_pgqpd"]
 [ext_resource type="PackedScene" uid="uid://cqegi1qrqjx6p" path="res://scene/enemy.tscn" id="2_2iryq"]
-[ext_resource type="Script" path="res://src/spawner.gd" id="3_0801l"]
-[ext_resource type="Script" path="res://scene/player.gd" id="4_76ep8"]
+[ext_resource type="Script" uid="uid://d3wrqpkkiqnfv" path="res://src/spawner.gd" id="3_0801l"]
+[ext_resource type="Script" uid="uid://dcobtt7ihl5kc" path="res://scene/player.gd" id="4_76ep8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tum4g"]
 texture = ExtResource("1_pgqpd")
