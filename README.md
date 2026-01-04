@@ -5,12 +5,10 @@
 ### Further experiments with the Godot game engine
 
 ### TODO
-- Scaffolding
+- Scaffolding - Zelda LTTP alike
 - Multi-layer tile map with lighting
-- Change to a low resolution and see what the lighting looks like
 
 ### Done
-- Removed the colour graphics and added the mono graphics
 
 ### Oubliette
 
