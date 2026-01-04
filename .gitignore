@@ -6,7 +6,8 @@
 export.cfg
 export_presets.cfg
 
-# Ignore addons
+# Build and aux
+android
 addons
 
 # Imported translations (automatically generated from CSV files)
