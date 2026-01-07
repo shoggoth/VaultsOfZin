@@ -10,9 +10,16 @@ config_version=5
 
 [application]
 
-config/name="Vaults Of Zin"
+config/name="Vaults of Zin"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="uid://c83bgtgdcpsfn"
+
+[display]
+
+window/size/viewport_width=640
+window/size/viewport_height=360
+window/size/window_width_override=1920
+window/size/window_height_override=1080
 
 [editor]
 
@@ -23,3 +30,4 @@ version_control/autoload_on_startup=true
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
