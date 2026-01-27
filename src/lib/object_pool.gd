@@ -34,24 +34,8 @@ func _messing():
 		return true
 	var setup = func(o: Node):
 		print("Setting up ", o)
-	
+
 	get_children().all((func(o: Object, s: Callable):
 		if "setup" in o: s.call(o)
 		return true
 		).bind(setup))
-
-static var jewgold_scene = preload("res://scene/pickups/jew_gold.tscn")
-var count = 0
-
-func _on_timer_timeout() -> void:
-	count += 1
-	if count > 9:
-		count = 0
-		live.get_children().any(func(n): n.add_to_group(pool_group))
-	else:
-		spawn_scene(jewgold_scene, func(new_node: Node):
-			#new_node.add_to_group(pool_group)
-			var n = new_node as Node2D
-			n.position = Vector2(16 + randf() * 300, 160)
-			return new_node
-		)

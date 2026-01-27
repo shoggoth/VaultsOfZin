@@ -121,7 +121,6 @@ texture = SubResource("GradientTexture2D_cy54k")
 
 [node name="PlaceholderSprite" type="Sprite2D" parent="."]
 texture_filter = 1
-texture_repeat = 2
 position = Vector2(320, 180)
 scale = Vector2(16, 16)
 texture = SubResource("PlaceholderTexture2D_2i4tg")

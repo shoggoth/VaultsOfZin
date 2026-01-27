@@ -1,0 +1,104 @@
+[gd_scene load_steps=12 format=3 uid="uid://ckas6uh7b3ibn"]
+
+[ext_resource type="PackedScene" uid="uid://yocsvu6wpghl" path="res://scene/tmp.tscn" id="1_5kiuu"]
+[ext_resource type="Script" uid="uid://c7os1fs0kc6tg" path="res://src/game.gd" id="1_33cqm"]
+[ext_resource type="Script" uid="uid://cahxm6to3sc1s" path="res://src/lib/move.gd" id="3_33cqm"]
+[ext_resource type="Script" uid="uid://d02gphe0lxyru" path="res://src/lib/controller.gd" id="3_xwcet"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dbls1"]
+radius = 20.0
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_dbls1"]
+size = Vector2(4, 4)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xwcet"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_p1ry8"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xlg7c"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p1ry8"]
+size = Vector2(108, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xwcet"]
+size = Vector2(640, 80)
+
+[node name="Game" type="Node"]
+script = ExtResource("1_33cqm")
+
+[node name="MainMenu" parent="." node_paths=PackedStringArray("game") instance_placeholder="res://scene/ui/main_menu.tscn"]
+visible = false
+game = NodePath("..")
+
+[node name="Temp" parent="." instance=ExtResource("1_5kiuu")]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(160, 0)
+metadata/_edit_group_ = true
+
+[node name="PlatformController" type="Node" parent="Player" node_paths=PackedStringArray("movement")]
+script = ExtResource("3_xwcet")
+movement = NodePath("../PlatformMovement")
+metadata/_custom_type_script = "uid://d02gphe0lxyru"
+
+[node name="PlatformMovement" type="Node" parent="Player" node_paths=PackedStringArray("body")]
+script = ExtResource("3_33cqm")
+body = NodePath("..")
+terminal_velocity = 1000.0
+fall_gravity = 1.0
+metadata/_custom_type_script = "uid://cahxm6to3sc1s"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("CircleShape2D_dbls1")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+self_modulate = Color(0.21171874, 0.5073149, 0.45794845, 1)
+scale = Vector2(4, 8)
+texture = SubResource("PlaceholderTexture2D_dbls1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
+
+[node name="Boundary" type="StaticBody2D" parent="."]
+
+[node name="Floor" type="CollisionShape2D" parent="Boundary"]
+position = Vector2(320, 360)
+shape = SubResource("WorldBoundaryShape2D_xwcet")
+
+[node name="LeftWall" type="CollisionShape2D" parent="Boundary"]
+position = Vector2(0, 180)
+shape = SubResource("WorldBoundaryShape2D_p1ry8")
+
+[node name="RightWall" type="CollisionShape2D" parent="Boundary"]
+position = Vector2(640, 180)
+shape = SubResource("WorldBoundaryShape2D_xlg7c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary"]
+position = Vector2(212, 237)
+shape = SubResource("RectangleShape2D_p1ry8")
+
+[node name="Ball" type="RigidBody2D" parent="."]
+position = Vector2(480, 3)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
+shape = SubResource("CircleShape2D_dbls1")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ball"]
+self_modulate = Color(0.21171874, 0.5073149, 0.45794845, 1)
+scale = Vector2(4, 8)
+texture = SubResource("PlaceholderTexture2D_dbls1")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(320, 320)
+gravity_space_override = 3
+gravity_point_center = Vector2(0, -1)
+gravity_direction = Vector2(0, -1)
+linear_damp_space_override = 3
+angular_damp_space_override = 3
+angular_damp = 32.099
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_xwcet")
