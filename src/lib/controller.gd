@@ -1,4 +1,4 @@
-class_name PlatformController extends Node
+extends Node
 
 @export var movement: PlatformMovement
 @export var jump_buffer_time := 0.0									# Buffer time for variable jump height (s)

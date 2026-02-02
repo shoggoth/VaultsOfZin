@@ -14,7 +14,7 @@
 - Multi-layer tile map with lighting
 
 ### Done
-
+- Try to use the new theme and see what that looks like. Does not look bad at all then, will use it from now on
 ### Oubliette
 
 ### Reference
