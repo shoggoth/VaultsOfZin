@@ -21,8 +21,8 @@ var direction := 0.0
 var jump_button_pressed = false
 var jump_button_held = false
 var jump_count := 0
-var sm = FSMNode.FSM.new([
-FSMNode.FSM.State.new("Idle",
+var sm = FSM.new([
+FSM.State.new("Idle",
 	Util.nc,
 	func(delta: float):
 		move(delta, false)
@@ -32,7 +32,7 @@ FSMNode.FSM.State.new("Idle",
 		else:
 			sm.enter_state("Fall")
 		),
-FSMNode.FSM.State.new("Run",
+FSM.State.new("Run",
 	Util.nc,
 	func(delta: float):
 		move(delta, false)
@@ -43,8 +43,8 @@ FSMNode.FSM.State.new("Run",
 		elif !direction:
 			sm.enter_state("Idle")
 		),
-FSMNode.FSM.State.new("Jump",
-	func(_s: FSMNode.FSM.State):
+FSM.State.new("Jump",
+	func(_s: FSM.State):
 		jump(direction),
 	func(delta: float):
 		move(delta, true, true)
@@ -54,7 +54,7 @@ FSMNode.FSM.State.new("Jump",
 		elif !jump_button_held:
 			body.velocity.y *= jump_height_multiplier
 		),
-FSMNode.FSM.State.new("Fall",
+FSM.State.new("Fall",
 	Util.nc,
 	func(delta: float):
 		move(delta, true)

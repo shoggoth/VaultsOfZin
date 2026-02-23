@@ -53,8 +53,7 @@ size = Vector2(640, 80)
 [node name="Game" type="Node" unique_id=621445830]
 script = ExtResource("1_33cqm")
 
-[node name="MainMenu" parent="." unique_id=1715459201 node_paths=PackedStringArray("game") instance_placeholder="res://scene/ui/main_menu.tscn"]
-game = NodePath("..")
+[node name="MainMenu" parent="." unique_id=1715459201 instance_placeholder="res://scene/ui/main_menu.tscn"]
 
 [node name="Temp" parent="." unique_id=1740306861 instance=ExtResource("1_5kiuu")]
 
