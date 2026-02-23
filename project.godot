@@ -22,6 +22,10 @@ boot_splash/use_filter=false
 boot_splash/image="uid://c83bgtgdcpsfn"
 config/icon="uid://c83bgtgdcpsfn"
 
+[audio]
+
+buses/default_bus_layout="uid://d0s7mm8i5oldv"
+
 [autoload]
 
 Global="*res://src/global.gd"
