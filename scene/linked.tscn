@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://ddcybd52rva51"]
+
+[sub_resource type="Curve" id="Curve_bk3ax"]
+_data = [Vector2(0, 0), 0.0, 1.7814069, 0, 1, Vector2(0.24166666, 0.43050665), 2.4617758, 2.4617758, 0, 0, Vector2(0.6333333, 0.52199155), 0.86136585, 0.86136585, 0, 0, Vector2(0.87291664, 0.963406), 0.8965525, 0.8965525, 0, 0, Vector2(1, 1), 0.2879525, 0.0, 1, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_0mbxw"]
+width = 32
+curve = SubResource("Curve_bk3ax")
+
+[sub_resource type="Gradient" id="Gradient_bk3ax"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0.5)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0mbxw"]
+gradient = SubResource("Gradient_bk3ax")
+width = 1
+
+[node name="Linked" type="Node2D"]
+
+[node name="CurveTexture" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(4, 128)
+texture = SubResource("CurveTexture_0mbxw")
+
+[node name="Constant" type="Sprite2D" parent="."]
+position = Vector2(64, 0)
+scale = Vector2(16, 16)
+texture = SubResource("GradientTexture1D_0mbxw")
