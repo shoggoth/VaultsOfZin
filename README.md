@@ -5,6 +5,7 @@
 ### Further experiments with the Godot game engine
 
 ### TODO
+- Construct the level loader global
 - Make the art folder be under source control but don't have it compiled into the project
 - Check if an embedded scene that is shared between 2 parent scenes can pass information between (player in 2 levels)
 - Scaffolding - Zelda LTTP alike
