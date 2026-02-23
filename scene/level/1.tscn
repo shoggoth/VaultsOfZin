@@ -1,6 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://yocsvu6wpghl"]
+[gd_scene format=3 uid="uid://yocsvu6wpghl"]
 
 [ext_resource type="PackedScene" uid="uid://ddcybd52rva51" path="res://scene/linked.tscn" id="1_cy54k"]
+[ext_resource type="PackedScene" uid="uid://ch7kf46ie1d6e" path="res://scene/player.tscn" id="2_cey65"]
+[ext_resource type="PackedScene" uid="uid://cxtq5er0gwmws" path="res://scene/mob.tscn" id="3_q71ms"]
 
 [sub_resource type="Animation" id="Animation_cy54k"]
 length = 0.001
@@ -101,26 +103,30 @@ fill_to = Vector2(1, 1)
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_2i4tg"]
 size = Vector2(4, 4)
 
-[node name="Node2D" type="Node2D"]
+[node name="Level 1" type="Node" unique_id=1104673562]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_cey65")
-}
-autoplay = "default"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=570325661]
+libraries/ = SubResource("AnimationLibrary_cey65")
+autoplay = &"default"
 
-[node name="Linked" parent="." instance=ExtResource("1_cy54k")]
+[node name="Linked" parent="." unique_id=1464852968 instance=ExtResource("1_cy54k")]
 modulate = Color(1, 1, 1, 0.43137255)
 position = Vector2(320, 180)
 
-[node name="CheckSprite" type="Sprite2D" parent="."]
+[node name="CheckSprite" type="Sprite2D" parent="." unique_id=272703009]
 texture_filter = 1
 position = Vector2(320, 180)
 scale = Vector2(64, 64)
 texture = SubResource("GradientTexture2D_cy54k")
 
-[node name="PlaceholderSprite" type="Sprite2D" parent="."]
+[node name="PlaceholderSprite" type="Sprite2D" parent="." unique_id=1064907864]
 texture_filter = 1
 position = Vector2(320, 180)
 scale = Vector2(16, 16)
 texture = SubResource("PlaceholderTexture2D_2i4tg")
+
+[node name="Player" parent="." unique_id=1973022998 instance=ExtResource("2_cey65")]
+position = Vector2(160, 0)
+
+[node name="Mob" parent="." unique_id=983238646 instance=ExtResource("3_q71ms")]
+position = Vector2(320, 0)

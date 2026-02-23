@@ -7,11 +7,11 @@
 ### TODO
 - Construct the level loader global
 - Make the art folder be under source control but don't have it compiled into the project
+- Navigate between scenes and warp the player to the new scene if not in the editor.
 - Check if an embedded scene that is shared between 2 parent scenes can pass information between (player in 2 levels)
 - Scaffolding - Zelda LTTP alike
 - Arrange the various UI elements for use on the title screen and the player
 - Find a way to add the background to a number of scenes
-- Navigate between scenes
 - Multi-layer tile map with lighting
 
 ### Done

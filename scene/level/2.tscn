@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://ds5n6xqqw1wsc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_88hml"]
+radius = 20.0
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_3ybkj"]
+size = Vector2(4, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kmk5h"]
+size = Vector2(640, 80)
+
+[node name="Level 2" type="Node" unique_id=223046468]
+
+[node name="Ball" type="RigidBody2D" parent="." unique_id=1936864494]
+position = Vector2(480, 0)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball" unique_id=5856076]
+shape = SubResource("CircleShape2D_88hml")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ball" unique_id=227509999]
+self_modulate = Color(0.21171874, 0.5073149, 0.45794845, 1)
+scale = Vector2(4, 8)
+texture = SubResource("PlaceholderTexture2D_3ybkj")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1741545143]
+position = Vector2(320, 320)
+gravity_space_override = 3
+gravity_point_center = Vector2(0, -1)
+gravity_direction = Vector2(0, -1)
+linear_damp_space_override = 3
+angular_damp_space_override = 3
+angular_damp = 32.099
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=162619847]
+shape = SubResource("RectangleShape2D_kmk5h")
